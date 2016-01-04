@@ -13,6 +13,8 @@ class PositionViewController: UIViewController {
      @IBOutlet weak var blueSquare: UIView!
     @IBOutlet weak var redSquare: UIView!
     @IBOutlet weak var thereSquare: UIView!
+    @IBOutlet weak var rightConstr: NSLayoutConstraint!
+    @IBOutlet weak var redFootConstr: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,31 +28,43 @@ class PositionViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
+    
+        // 使用layout 动画
+        self.view.layoutIfNeeded()
         UIView.animateWithDuration(1) { () -> Void in
-            
-            self.blueSquare.center.x = self.view.bounds.width - self.blueSquare.center.x
-            
-            
+            self.blueSquare.center.x = self.rightConstr.constant + self.blueSquare.center.x
         }
         
-//        UIView.animateWithDuration(1, delay: 0.5, options: [], animations: {
-//             self.redSquare.center.y = self.view.bounds.height - self.redSquare.center.y
-//            
-//            
-//            }, completion: nil)
-//        
         UIView.animateWithDuration(1, delay: 0.5, options: [.Repeat,.Autoreverse], animations: { () -> Void in
-            self.redSquare.center.y = self.view.bounds.height - self.redSquare.center.y
+            self.redSquare.center.y = self.redFootConstr.constant + self.redSquare.center.y
             
 
             
             }) { (in_sockinfo) -> Void in
-                self.redSquare.center.y = self.view.bounds.height - self.redSquare.center.y
-                
-
+                self.redSquare.center.y = self.redFootConstr.constant + self.redSquare.center.y
                 
         }
+        
+        // 不使用layout 动画
+        
+//        UIView.animateWithDuration(1) { () -> Void in
+//            
+//            self.blueSquare.center.x = self.view.bounds.width - self.blueSquare.center.x
+//            
+//            
+//        }
+//        UIView.animateWithDuration(1, delay: 0.5, options: [.Repeat,.Autoreverse], animations: { () -> Void in
+//            self.redSquare.center.y = self.view.bounds.height - self.redSquare.center.y
+//            
+//            
+//            
+//            }) { (in_sockinfo) -> Void in
+//                self.redSquare.center.y = self.view.bounds.height - self.redSquare.center.y
+//                
+//                
+//                
+//        }
+        
         
         UIView.animateWithDuration(1, delay: 1, options: [], animations: {
             self.thereSquare.center.x = self.view.bounds.width - self.thereSquare.center.x
