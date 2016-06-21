@@ -173,6 +173,7 @@
                         <outlet property="blueSquare" destination="hkT-Za-2DG" id="iHL-q6-VHx"/>
                         <outlet property="redFootConstr" destination="Pvs-td-3qe" id="GnS-oa-SNG"/>
                         <outlet property="redSquare" destination="Ma8-Nh-si6" id="4gY-0n-sV5"/>
+                        <outlet property="redTopconstr" destination="pod-aC-OmC" id="b73-sa-ori"/>
                         <outlet property="rightConstr" destination="Wym-1X-XK5" id="8fm-gR-CEh"/>
                         <outlet property="thereSquare" destination="U44-Ks-CpR" id="VAb-Pe-WNe"/>
                     </connections>

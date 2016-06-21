@@ -15,6 +15,7 @@ class PositionViewController: UIViewController {
     @IBOutlet weak var thereSquare: UIView!
     @IBOutlet weak var rightConstr: NSLayoutConstraint!
     @IBOutlet weak var redFootConstr: NSLayoutConstraint!
+    @IBOutlet weak var redTopconstr: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,13 +37,12 @@ class PositionViewController: UIViewController {
         }
         
         UIView.animateWithDuration(1, delay: 0.5, options: [.Repeat,.Autoreverse], animations: { () -> Void in
-            self.redSquare.center.y = self.redFootConstr.constant + self.redSquare.center.y
+            self.redSquare.center.y = self.redFootConstr.constant + (self.redSquare.bounds.height / 2)
             
-
             
             }) { (in_sockinfo) -> Void in
-                self.redSquare.center.y = self.redFootConstr.constant + self.redSquare.center.y
-                
+                self.redSquare.center.y = self.redFootConstr.constant - self.redTopconstr.constant
+
         }
         
         // 不使用layout 动画
